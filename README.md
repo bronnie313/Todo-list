@@ -117,7 +117,8 @@ Open the cloned folder in your git terminal. Then run 'npm run dev'.
 
 ### Run tests
 To run tests, run the following command:
-npm test
+npx eslint .
+npx hint .
 Example command:
 ```sh
   npx eslint .
