@@ -120,7 +120,8 @@ To run tests, run the following command:
 npm test
 Example command:
 ```sh
-  npm test
+  npx eslint .
+npx hint .
 ```
 ### Deployment
 You can deploy this project using:
