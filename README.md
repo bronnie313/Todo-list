@@ -33,15 +33,10 @@
 
 # 📖 Todo-App <a name="about-project"></a>
 
-This project is built with React
-
-**Math-Magicians** is a simple todo app that allows one to:
-  - Add a todo task.
-  - View a list of teir todos.
-  - Delete a completed todo
+"To-do list" is a tool that helps to organize your day, built with HTML, CSS, JavaScript. With its management features, you can add, mark as completed, remove and make changes to tasks.
 
 ## :hammer_and_wrench: Built With <a name="built-with"></a>
-- React
+
 ### Tech Stack <a name="tech-stack"></a>
 <details>
   <summary>Version Control</summary>
@@ -58,8 +53,9 @@ This project is built with React
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://react.dev/">React</a></li>
-  </ul>
+    <li><a href="https://react.dev/">HTML</a></li>
+    <li><a href="https://react.dev/">CSS</a></li>
+    <li><a href="https://react.dev/">JAVASCRIPT</a></li>
 </details>
 
 <!-- Features -->
@@ -68,7 +64,7 @@ This project is built with React
 
 - **Linters SetUp**
 - **Follow JavaScript best practices**
-- **Set up using React**
+- **Set up using WEBPACK**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
