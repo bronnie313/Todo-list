@@ -1,38 +1,28 @@
 import './style.css';
 
-const listName = [
-  {
-    description: 'task1',
-    completed: true,
-    index: 1,
-  },
-  {
-    description: 'task3',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'task2',
-    completed: true,
-    index: 2,
-  },
-];
-
-listName.sort((a, b) => a.index - b.index);
-
-const ul = document.getElementById('items');
-const populate = () => {
-  for (let i = 0; i < listName.length; i += 1) {
-    const checkcompleted = listName[i].completed ? 'checked' : '';
-    const li = document.createElement('li');
-    li.className = 'to-do-item';
-    li.innerHTML = ` 
-              <input type="checkbox" ${checkcompleted}>
-              <p>${listName[i].description}</p>
-              <button class="view-more"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-          `;
-    ul.appendChild(li);
+class Todo {
+  constructor(completed, description, index) {
+    this.completed = completed;
+    this.description = description;
+    this.index = index;
   }
+}
+
+const todoList = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : [];
+
+const form = document.getElementById('form');
+const task = document.getElementById('task');
+
+const addTask = () => {
+  const todo = new Todo(false, task.value.trim(), todoList.length + 1);
+  if (task.value.length) {
+    todoList.push(todo);
+  }
+  localStorage.setItem('todos', JSON.stringify(todoList));
+  form.reset();
 };
 
-populate();
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  addTask();
+});
