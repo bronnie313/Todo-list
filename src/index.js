@@ -13,6 +13,37 @@ const todoList = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem
 const form = document.getElementById('form');
 const task = document.getElementById('task');
 
+const items = document.getElementById('items');
+
+const populate = () => {
+  items.innerHTML = '';
+  todoList.forEach((item, i) => {
+    items.innerHTML += ` 
+    <div class="list p-1 d-flex justify-content-between align-items-center mt-1">
+            <input type="checkbox">
+            <p class="m-0 space" contentEditable="true"> ${item.description} </P>
+            <i class="fa-solid fa-trash-can delete" data-index="${i}"></i>
+            <i class="fa-solid fa-ellipsis-vertical fa-lg view-more" data-index="${i}"></i>
+    </div>
+    `;
+    items.value = '';
+
+    const viewMoreBtn = document.querySelectorAll('.view-more');
+
+    viewMoreBtn.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const deleteBtn = document.querySelectorAll('.delete');
+        const index = parseInt(e.target.dataset.index, 10);
+        btn.style.display = 'none';
+        deleteBtn[index].style.display = 'block';
+      });
+    });
+  });
+};
+
+populate();
+
 const addTask = () => {
   const todo = new Todo(false, task.value.trim(), todoList.length + 1);
   if (task.value.length) {
@@ -25,4 +56,22 @@ const addTask = () => {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   addTask();
+  populate();
+});
+
+const removeTask = (index) => {
+  todoList.splice(index, 1);
+  localStorage.setItem('todos', JSON.stringify(todoList));
+  for (let i = 0; i < todoList.length; i += 1) {
+    todoList[i].index = i + 1;
+  }
+  localStorage.setItem('todos', JSON.stringify(todoList));
+};
+
+items.addEventListener('click', (e) => {
+  if (e.target.classList.contains('delete')) {
+    const index = parseInt(e.target.dataset.index, 10);
+    removeTask(index);
+    populate();
+  }
 });
