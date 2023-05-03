@@ -107,7 +107,7 @@ A project was built Using
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [See WEB here](https://bronnie313.github.io/To-do-list/dist/)
+- [See WEB here](https://bronnie313.github.io/Todo-list/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -208,7 +208,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [To-Do List](../../issues/).
+Feel free to check the [ToDo List](https://github.com/bronnie313/Todo-list/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -217,7 +217,7 @@ Feel free to check the [To-Do List](../../issues/).
 ## ⭐️ Show your support <a name="support"></a>
 
 If you like this project I'm grateful for your support but you can also give me a star at my github account
-https://github.com/bronnie313
+https://github.com/bronnie313/Todo-list
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
