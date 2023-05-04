@@ -1,0 +1,57 @@
+body {
+  background-color: #dee2e6;
+}
+
+.to-do {
+  margin: 7% 12em 0;
+  border-radius: 2px;
+  border: 1px solid #dee2e6;
+  padding: 3px;
+  box-shadow: 0 5px 10px -1px rgba(95, 91, 91, 0.685);
+  background-color: #fff;
+}
+
+.delete {
+  display: none;
+}
+
+.space {
+  width: 90%;
+  outline: none;
+}
+
+button {
+  border: none;
+}
+
+.view-more {
+  padding-right: 5px;
+}
+
+form {
+  border-bottom: 1px solid lightgray;
+}
+
+form > input {
+  width: 85%;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  font-style: italic;
+}
+
+form > button > i {
+  transform: rotate(90deg);
+}
+
+.title {
+  border-bottom: 1px solid lightgray;
+}
+
+.list {
+  border-bottom: 1px solid lightgray;
+}
+
+#enter {
+  background-color: white;
+}
