@@ -18,14 +18,15 @@ const items = document.getElementById('items');
 const populate = () => {
   items.innerHTML = '';
   todoList.forEach((item, i) => {
+    const isChecked = todoList[i].completed ? 'checked' : '';
     items.innerHTML += ` 
-        <div class="list p-1 d-flex justify-content-between align-items-center mt-1">
-                    <input type="checkbox">
-                    <p class="m-0 space" data-index="${i}" contentEditable="true"> ${item.description} </P>
-                    <i class="fa-solid fa-trash-can delete" data-index="${i}"></i>
-                    <i class="fa-solid fa-ellipsis-vertical fa-lg view-more" data-index="${i}"></i>
-        </div>
-        `;
+            <div class="list p-1 d-flex justify-content-between align-items-center mt-1">
+                        <input class="check" type="checkbox" data-index="${i}" ${isChecked}>
+                        <p class="m-0 space" data-index="${i}" contentEditable="true"> ${item.description} </P>
+                        <i class="fa-solid fa-trash-can delete" data-index="${i}"></i>
+                        <i class="fa-solid fa-ellipsis-vertical fa-lg view-more" data-index="${i}"></i>
+            </div>
+            `;
     items.value = '';
 
     const viewMoreBtn = document.querySelectorAll('.view-more');
@@ -58,6 +59,14 @@ const populate = () => {
           localStorage.setItem('todos', JSON.stringify(todoList));
           space.blur();
         }
+      });
+    });
+
+    const check = document.querySelectorAll('.check');
+    check.forEach((checkbox, i) => {
+      checkbox.addEventListener('change', (e) => {
+        todoList[i].completed = e.target.checked;
+        localStorage.setItem('todos', JSON.stringify(todoList));
       });
     });
   });
@@ -95,4 +104,18 @@ items.addEventListener('click', (e) => {
     removeTask(index);
     populate();
   }
+});
+
+const clear = document.getElementById('clear');
+clear.addEventListener('click', (e) => {
+  e.preventDefault();
+  let todo = JSON.parse(localStorage.getItem('todos'));
+  todo = todo.filter((item) => !item.completed);
+  localStorage.setItem('todos', JSON.stringify(todo));
+  for (let i = 0; i < todo.length; i += 1) {
+    const todo = JSON.parse(localStorage.getItem('todos'));
+    todo[i].index = i + 1;
+    localStorage.setItem('todos', JSON.stringify(todo));
+  }
+  location.reload();
 });
