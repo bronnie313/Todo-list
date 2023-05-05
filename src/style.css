@@ -1,0 +1,73 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgray;
+}
+
+.to-do {
+  width: 50%;
+  border: 1px solid;
+  background-color: white;
+  margin-top: 10%;
+}
+
+.title {
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
+  padding-right: 8%;
+}
+
+form {
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+form > input {
+  width: 85%;
+  padding: 0.5rem;
+  border: none;
+  font-style: italic;
+}
+
+form > button {
+  border: none;
+  background-color: white;
+}
+
+form > button > i {
+  transform: rotate(90deg);
+  padding: 0.5rem;
+}
+
+#clear {
+  width: 100%;
+  padding: 0.5rem;
+  text-decoration: underline;
+  border: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.to-do-item {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.view-more {
+  border: none;
+  background: white;
+}
+
+p {
+  width: 85%;
+}
