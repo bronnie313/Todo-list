@@ -13,8 +13,30 @@ const todoList = localStorage.getItem('todos') ? JSON.parse(localStorage.getItem
 const form = document.getElementById('form');
 const task = document.getElementById('task');
 
-const items = document.getElementById('items');
+const editSpace = () => {
+    const editContent = document.querySelectorAll('.space');
 
+    editContent.forEach((space) => {
+      space.addEventListener('blur', (e) => {
+        e.preventDefault();
+        const index = parseInt(e.target.dataset.index, 10);
+        todoList[index].description = space.innerText;
+        localStorage.setItem('todos', JSON.stringify(todoList));
+      });
+
+            space.addEventListener('keydown', (e) => {
+        if (e.keyCode === 13) {
+          e.preventDefault();
+          const index = parseInt(e.target.dataset.index, 10);
+          todoList[index].description = space.innerText;
+          localStorage.setItem('todos', JSON.stringify(todoList));
+          space.blur();
+        }
+      });
+    });
+}
+
+const items = document.getElementById('items');
 const populate = () => {
   items.innerHTML = '';
   todoList.forEach((item, i) => {
@@ -40,26 +62,8 @@ const populate = () => {
       });
     });
 
-    const editContent = document.querySelectorAll('.space');
-
-    editContent.forEach((space) => {
-      space.addEventListener('blur', (e) => {
-        e.preventDefault();
-        const index = parseInt(e.target.dataset.index, 10);
-        todoList[index].description = space.innerText;
-        localStorage.setItem('todos', JSON.stringify(todoList));
-      });
-
-      space.addEventListener('keydown', (e) => {
-        if (e.keyCode === 13) {
-          e.preventDefault();
-          const index = parseInt(e.target.dataset.index, 10);
-          todoList[index].description = space.innerText;
-          localStorage.setItem('todos', JSON.stringify(todoList));
-          space.blur();
-        }
-      });
-    });
+    editSpace();
+    
   });
 };
 
